@@ -2,12 +2,20 @@
 using Android.App;
 using Android.Content;
 using Android.OS;
+using TvLeanback.Models;
 
 namespace TvLeanback.Player
 {
     public class VideoLoaderCallbacks : LoaderManager.ILoaderCallbacks
     {
-        public IntPtr Handle => throw new NotImplementedException();
+        readonly Playlist playlist;
+
+        public VideoLoaderCallbacks(Playlist playlist)
+        {
+            this.playlist = playlist;
+        }
+
+        public IntPtr Handle => IntPtr.Zero;
 
         public void Dispose()
         {

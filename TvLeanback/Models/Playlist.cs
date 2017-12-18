@@ -37,7 +37,7 @@ namespace TvLeanback.Models
 
         public Movie Next()
         {
-            if ((currentPosition + 1) < size())
+            if ((currentPosition + 1) < playlist.Count)
             {
                 currentPosition++;
                 return playlist[currentPosition];

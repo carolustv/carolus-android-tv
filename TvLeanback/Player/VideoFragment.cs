@@ -18,6 +18,7 @@ namespace TvLeanback
         TrackSelector trackSelector;
         LeanbackPlayerAdapter playerAdapter;
         PlaylistActionListener playlistActionListener;
+        VideoLoaderCallbacks videoLoaderCallbacks;
         Playlist playlist;
 
         Movie movie;
@@ -39,8 +40,6 @@ namespace TvLeanback
             var args = new Bundle();
             args.PutString("Category", "Movies");
             LoaderManager.InitLoader(2, args, videoLoaderCallbacks);
-
-            videoCursorAdapter = SetupRelatedVideosCursor();
         }
 
         public override void OnStart()
@@ -106,8 +105,8 @@ namespace TvLeanback
 
             Play(movie);
 
-            var rowsAdapter = initializeRelatedVideosRow();
-            Adapter = rowsAdapter;
+            //var rowsAdapter = initializeRelatedVideosRow();
+            //Adapter = rowsAdapter;
         }
 
 
