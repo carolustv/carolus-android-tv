@@ -143,6 +143,7 @@
     <Compile Include="Player\PlayerActivity.cs" />
     <Compile Include="Player\VideoPlayerGlue.cs" />
     <Compile Include="Player\LeanbackPlayerAdapter.cs" />
+    <Compile Include="Player\PlayerComponentListener.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

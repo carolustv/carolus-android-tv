@@ -1,6 +1,9 @@
 ﻿using System;
 using Android.Support.V17.Leanback.App;
 using Com.Google.Android.Exoplayer2;
+using Com.Google.Android.Exoplayer2.Trackselection;
+using Com.Google.Android.Exoplayer2.Util;
+using TvLeanback.Player;
 
 namespace TvLeanback
 {
@@ -8,11 +11,13 @@ namespace TvLeanback
     {
         private const int UPDATE_DELAY = 16;
 
-        //private VideoPlayerGlue mPlayerGlue;
-        private SimpleExoPlayer mPlayer;
-        //private TrackSelector mTrackSelector;
+        VideoPlayerGlue playerGlue;
+        SimpleExoPlayer player;
+        TrackSelector trackSelector;
+        LeanbackPlayerAdapter playerAdapter;
+        PlaylistActionListener playlistActionListener;
 
-        private Movie mMovie;
+        Movie mMovie;
 
         public PlaybackFragment()
         {
@@ -26,6 +31,10 @@ namespace TvLeanback
         public override void OnStart()
         {
             base.OnStart();
+
+            if (Util.SdkInt > 23) {
+                releasePlayer();
+            }
         }
 
         public override void OnResume()
@@ -41,6 +50,19 @@ namespace TvLeanback
         public override void OnStop()
         {
             base.OnStop();
+        }
+
+        void releasePlayer()
+        {
+            if (player != null)
+            {
+                player.Release();
+                player = null;
+                trackSelector = null;
+                playerGlue = null;
+                playerAdapter = null;
+                playlistActionListener = null;
+            }
         }
     }
 }

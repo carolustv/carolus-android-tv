@@ -1,8 +1,7 @@
-﻿using System;
-using Android.Content;
+﻿using Android.Content;
 using Android.Support.V17.Leanback.Media;
 using Android.Support.V17.Leanback.Widget;
-using Com.Google.Android.Exoplayer2;
+using Java.Util.Concurrent;
 
 namespace TvLeanback.Player
 {
@@ -15,16 +14,18 @@ namespace TvLeanback.Player
             void OnNext();
         }
 
-        private readonly OnActionClickedListener actionListener;
+        static readonly long tenSeconds = TimeUnit.Seconds.ToMillis(10);
 
-        private PlaybackControlsRow.SkipPreviousAction skipPreviousAction;
-        private PlaybackControlsRow.SkipNextAction skipNextAction;
-        private PlaybackControlsRow.FastForwardAction fastForwardAction;
-        private PlaybackControlsRow.RewindAction rewindAction;
+        readonly OnActionClickedListener actionListener;
 
-        private PlaybackControlsRow.RepeatAction repeatAction;
-        private PlaybackControlsRow.ThumbsUpAction thumbsUpAction;
-        private PlaybackControlsRow.ThumbsDownAction thumbsDownAction;
+        PlaybackControlsRow.SkipPreviousAction skipPreviousAction;
+        PlaybackControlsRow.SkipNextAction skipNextAction;
+        PlaybackControlsRow.FastForwardAction fastForwardAction;
+        PlaybackControlsRow.RewindAction rewindAction;
+
+        PlaybackControlsRow.RepeatAction repeatAction;
+        PlaybackControlsRow.ThumbsUpAction thumbsUpAction;
+        PlaybackControlsRow.ThumbsDownAction thumbsDownAction;
 
         public VideoPlayerGlue(
             Context context,
@@ -46,22 +47,22 @@ namespace TvLeanback.Player
             repeatAction = new PlaybackControlsRow.RepeatAction(context);
         }
 
-        protected override void OnCreatePrimaryActions(ArrayObjectAdapter adapter)
+        protected override void OnCreatePrimaryActions(ArrayObjectAdapter primaryActionsAdapter)
         {
-            base.OnCreatePrimaryActions(adapter);
+            base.OnCreatePrimaryActions(primaryActionsAdapter);
 
-            adapter.Add(skipPreviousAction);
-			adapter.Add(rewindAction);
-            adapter.Add(fastForwardAction);
-            adapter.Add(skipNextAction);
+            primaryActionsAdapter.Add(skipPreviousAction);
+			primaryActionsAdapter.Add(rewindAction);
+            primaryActionsAdapter.Add(fastForwardAction);
+            primaryActionsAdapter.Add(skipNextAction);
         }
 
-        protected override void OnCreateSecondaryActions(ArrayObjectAdapter adapter)
+        protected override void OnCreateSecondaryActions(ArrayObjectAdapter secondaryActionsAdapter)
         {
-            base.OnCreateSecondaryActions(adapter);
-            adapter.Add(thumbsDownAction);
-            adapter.Add(thumbsUpAction);
-            adapter.Add(repeatAction);
+            base.OnCreateSecondaryActions(secondaryActionsAdapter);
+            secondaryActionsAdapter.Add(thumbsDownAction);
+            secondaryActionsAdapter.Add(thumbsUpAction);
+            secondaryActionsAdapter.Add(repeatAction);
         }
 
         public override void OnActionClicked(Android.Support.V17.Leanback.Widget.Action action)
@@ -72,13 +73,52 @@ namespace TvLeanback.Player
             base.OnActionClicked(action);
         }
 
-        private bool ShouldDispatchAction(Android.Support.V17.Leanback.Widget.Action action)
+        bool ShouldDispatchAction(Android.Support.V17.Leanback.Widget.Action action)
         {
             return action == rewindAction
                     || action == fastForwardAction
                     || action == thumbsDownAction
                     || action == thumbsUpAction
                     || action == repeatAction;
+        }
+
+        void NotifyActionChanged(PlaybackControlsRow.MultiAction action, ArrayObjectAdapter adapter)
+        {
+            if (adapter != null)
+            {
+                int index = adapter.IndexOf(action);
+                if (index >= 0)
+                {
+                    adapter.NotifyArrayItemRangeChanged(index, 1);
+                }
+            }
+        }
+
+        public override void Next()
+        {
+            actionListener.OnNext();
+        }
+
+        public override void Previous()
+        {
+            actionListener.OnPrevious();
+        }
+
+        public void Rewind()
+        {
+            long newPosition = CurrentPosition - tenSeconds;
+            newPosition = (newPosition < 0) ? 0 : newPosition;
+            ((LeanbackPlayerAdapter)PlayerAdapter).SeekTo(newPosition);
+        }
+
+        public void FastForward()
+        {
+            if (Duration > -1)
+            {
+                long newPosition = CurrentPosition + tenSeconds;
+                newPosition = (newPosition > Duration) ? Duration : newPosition;
+                ((LeanbackPlayerAdapter)PlayerAdapter).SeekTo(newPosition);
+            }
         }
     }
 }
