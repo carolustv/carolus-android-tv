@@ -127,7 +127,6 @@
     <Compile Include="LeanbackDetailsFragment.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MainFragment.cs" />
-    <Compile Include="Movie.cs" />
     <Compile Include="PicassoBackgroundManagerTarget.cs" />
     <Compile Include="RecommendationBuilder.cs" />
     <Compile Include="SearchActivity.cs" />
@@ -138,12 +137,16 @@
     <Compile Include="VideoProvider.cs" />
     <Compile Include="VertivalGridFragment.cs" />
     <Compile Include="SearchFragment.cs" />
-    <Compile Include="MovieJson.cs" />
     <Compile Include="Player\VideoFragment.cs" />
     <Compile Include="Player\PlayerActivity.cs" />
     <Compile Include="Player\VideoPlayerGlue.cs" />
     <Compile Include="Player\LeanbackPlayerAdapter.cs" />
     <Compile Include="Player\PlayerComponentListener.cs" />
+    <Compile Include="Player\PlaylistActionListener.cs" />
+    <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\MovieJson.cs" />
+    <Compile Include="Models\Playlist.cs" />
+    <Compile Include="Player\VideoLoaderCallbacks.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -218,6 +221,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Player\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

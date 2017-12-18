@@ -41,9 +41,9 @@ namespace TvLeanback.Player
             rewindAction = new PlaybackControlsRow.RewindAction(context);
 
             thumbsUpAction = new PlaybackControlsRow.ThumbsUpAction(context);
-            thumbsUpAction.Index = PlaybackControlsRow.ThumbsUpAction.IndexOutline;
+            thumbsUpAction.Index = PlaybackControlsRow.ThumbsAction.IndexOutline;
             thumbsDownAction = new PlaybackControlsRow.ThumbsDownAction(context);
-            thumbsDownAction.Index = PlaybackControlsRow.ThumbsDownAction.IndexOutline;
+            thumbsDownAction.Index = PlaybackControlsRow.ThumbsAction.IndexOutline;
             repeatAction = new PlaybackControlsRow.RepeatAction(context);
         }
 
@@ -52,7 +52,7 @@ namespace TvLeanback.Player
             base.OnCreatePrimaryActions(primaryActionsAdapter);
 
             primaryActionsAdapter.Add(skipPreviousAction);
-			primaryActionsAdapter.Add(rewindAction);
+            primaryActionsAdapter.Add(rewindAction);
             primaryActionsAdapter.Add(fastForwardAction);
             primaryActionsAdapter.Add(skipNextAction);
         }
@@ -67,7 +67,8 @@ namespace TvLeanback.Player
 
         public override void OnActionClicked(Android.Support.V17.Leanback.Widget.Action action)
         {
-            if (ShouldDispatchAction(action)) {
+            if (ShouldDispatchAction(action))
+            {
                 return;
             }
             base.OnActionClicked(action);
