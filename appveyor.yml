@@ -5,9 +5,9 @@ os: Visual Studio 2015
 configuration: Release
 before_build:
 - ps: >-
-    nuget restore .\src\XLabs.Framework.sln
+    nuget restore .\CarolusAndroidTv.sln
 - appveyor RegisterXamarinLicense -Email %xamarin_email% -Password %xamarin_password% -Product Android
 build:
-  project: .\src\CarolusAndroidTv.sln
+  project: .\CarolusAndroidTv.sln
   verbosity: quiet
 test: off
