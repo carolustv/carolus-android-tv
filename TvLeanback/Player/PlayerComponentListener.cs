@@ -7,18 +7,12 @@ using Com.Google.Android.Exoplayer2.Trackselection;
 
 namespace TvLeanback.Player
 {
-    class PlayerComponentListener : IPlayerEventListener, SimpleExoPlayer.IVideoListener, ISurfaceHolderCallback
+    class PlayerComponentListener : Java.Lang.Object, IPlayerEventListener, SimpleExoPlayer.IVideoListener, ISurfaceHolderCallback
     {
         LeanbackPlayerAdapter adapter; 
 
         public PlayerComponentListener(LeanbackPlayerAdapter adapter) {
             this.adapter = adapter;
-        }
-
-        public IntPtr Handle => adapter.Handle;
-
-        public void Dispose()
-        {
         }
 
         public void InvokeOnRenderedFirstFrame()

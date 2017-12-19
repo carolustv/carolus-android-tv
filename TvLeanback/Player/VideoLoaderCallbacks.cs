@@ -6,20 +6,13 @@ using TvLeanback.Models;
 
 namespace TvLeanback.Player
 {
-    public class VideoLoaderCallbacks : LoaderManager.ILoaderCallbacks
+    public class VideoLoaderCallbacks : Java.Lang.Object, LoaderManager.ILoaderCallbacks
     {
         readonly Playlist playlist;
 
         public VideoLoaderCallbacks(Playlist playlist)
         {
             this.playlist = playlist;
-        }
-
-        public IntPtr Handle => IntPtr.Zero;
-
-        public void Dispose()
-        {
-            throw new NotImplementedException();
         }
 
         public Loader OnCreateLoader(int id, Bundle args)
