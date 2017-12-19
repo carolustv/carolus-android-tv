@@ -10,6 +10,7 @@ using Android.Media;
 
 using Java.Util;
 using Java.Util.Concurrent;
+using TvLeanback.Player;
 
 namespace TvLeanback
 {
@@ -30,7 +31,7 @@ namespace TvLeanback
 		private static readonly double MEDIA_BAR_HEIGHT = 0.1;
 		private static readonly double MEDIA_BAR_WIDTH = 0.9;
 
-		protected VideoView mVideoView;
+		protected FixedSizeVideoView mVideoView;
 		private TextView mStartText;
 		private TextView mEndText;
 		private SeekBar mSeekbar;
@@ -222,6 +223,7 @@ namespace TvLeanback
 			mVideoView.SetOnPreparedListener (this);
 			mVideoView.SetOnCompletionListener (this);
 		}
+
 		public bool OnError(MediaPlayer mp, MediaError error, int what){
 			String msg = "";
 			if (error == MediaError.TimedOut) {
@@ -236,13 +238,16 @@ namespace TvLeanback
 			mPlaybackState = PlaybackState.IDLE;
 			return false;
 		}
+
 		public void OnPrepared(MediaPlayer mp){
 			Log.Debug (TAG, "onPrepared is reached");
+            mVideoView.SetVideoSize(mp.VideoWidth, mp.VideoHeight);
 			mDuration = mp.Duration;
 			mEndText.Text = FormatTimeSignature (mDuration);
 			mSeekbar.Max = mDuration;
 			RestartSeekBarTimer ();
 		}
+
 		public void OnCompletion(MediaPlayer mp){
 				StopSeekBarTimer ();
 				mPlaybackState = PlaybackState.IDLE;
@@ -328,9 +333,10 @@ namespace TvLeanback
 		{
 			return true;
 		}
-		private void LoadViews ()
+
+		void LoadViews ()
 		{
-			mVideoView = FindViewById<VideoView> (Resource.Id.videoView);
+            mVideoView = FindViewById<FixedSizeVideoView> (Resource.Id.videoView);
 			mStartText = FindViewById<TextView> (Resource.Id.startText);
 			mEndText = FindViewById<TextView> (Resource.Id.endText);
 			mSeekbar = FindViewById<SeekBar> (Resource.Id.seekBar);
@@ -341,6 +347,7 @@ namespace TvLeanback
 
 			mVideoView.SetOnClickListener (this);
 		}
+
 		public void OnClick(View v){
 			Log.Debug (TAG, "clicked play pause button");
 
@@ -360,7 +367,7 @@ namespace TvLeanback
 				StopControllersTimer ();
 			}
 		}
-		private String FormatTimeSignature (int timeSignature)
+	    String FormatTimeSignature (int timeSignature)
 		{
 			return Java.Lang.String.Format (Java.Util.Locale.Us, 
 				"%02d:%02d",
@@ -373,7 +380,7 @@ namespace TvLeanback
 
 		internal class HideControllersTask : TimerTask
 		{
-			private PlayerActivity owner;
+			PlayerActivity owner;
 			public HideControllersTask(PlayerActivity owner)
 			{
 				this.owner  = owner;
@@ -389,7 +396,7 @@ namespace TvLeanback
 
 		internal class UpdateSeekbarTask : TimerTask
 		{
-			private PlayerActivity owner;
+			PlayerActivity owner;
 			public UpdateSeekbarTask(PlayerActivity owner)
 			{
 				this.owner  = owner;

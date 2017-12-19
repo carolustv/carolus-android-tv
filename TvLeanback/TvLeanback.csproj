@@ -137,16 +137,11 @@
     <Compile Include="VideoProvider.cs" />
     <Compile Include="VertivalGridFragment.cs" />
     <Compile Include="SearchFragment.cs" />
-    <Compile Include="Player\VideoFragment.cs" />
     <Compile Include="Player\PlayerActivity.cs" />
-    <Compile Include="Player\VideoPlayerGlue.cs" />
-    <Compile Include="Player\LeanbackPlayerAdapter.cs" />
-    <Compile Include="Player\PlayerComponentListener.cs" />
-    <Compile Include="Player\PlaylistActionListener.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\MovieJson.cs" />
     <Compile Include="Models\Playlist.cs" />
-    <Compile Include="Player\VideoLoaderCallbacks.cs" />
+    <Compile Include="Player\FixedSizeVideoView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
