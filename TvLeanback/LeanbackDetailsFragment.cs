@@ -21,9 +21,7 @@ namespace TvLeanback
 	{
 		private static readonly string TAG = "DetailsFragment";
 
-		private static readonly int ACTION_WATCH_TRAILER = 1;
-		private static readonly int ACTION_RENT = 2;
-		private static readonly int ACTION_BUY = 3;
+		private static readonly int ACTION_PLAY = 1;
 
 		private static readonly int DETAIL_THUMB_WIDTH = 120;
 		private static readonly int DETAIL_THUMB_HEIGHT = 120;
@@ -109,12 +107,8 @@ namespace TvLeanback
 				} catch (IOException e) {
 					Log.Warn (TAG, "Error updating background", e);
 				}
-				row.AddAction (new Action (ACTION_WATCH_TRAILER, owner.Resources.GetString (
-					Resource.String.watch_trailer_1), owner.Resources.GetString (Resource.String.watch_trailer_2)));
-				row.AddAction (new Action (ACTION_RENT, owner.Resources.GetString (Resource.String.rent_1),
-					owner.Resources.GetString (Resource.String.rent_2)));
-				row.AddAction (new Action (ACTION_BUY, owner.Resources.GetString (Resource.String.buy_1),
-					owner.Resources.GetString (Resource.String.buy_2)));
+                row.AddAction (new Action (ACTION_PLAY, owner.Resources.GetString (
+                    Resource.String.play), owner.Resources.GetString (Resource.String.movie)));
 				return row;
 			}
 
@@ -153,7 +147,7 @@ namespace TvLeanback
 
 			public void OnActionClicked (Action action)
 			{
-				if (action.Id == ACTION_WATCH_TRAILER) {
+                if (action.Id == ACTION_PLAY) {
 					Intent intent = new Intent (owner.Activity, typeof(PlayerActivity));
 					intent.PutExtra (owner.Resources.GetString (Resource.String.movie), Utils.Serialize(owner.selectedMovie));
 					intent.PutExtra (owner.Resources.GetString (Resource.String.should_start), true);

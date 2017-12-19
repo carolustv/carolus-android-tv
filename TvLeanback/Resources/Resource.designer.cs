@@ -3418,14 +3418,8 @@ namespace TvLeanback
 			// aapt resource value: 0x7f0a0042
 			public const int browse_title = 2131361858;
 			
-			// aapt resource value: 0x7f0a0058
-			public const int buy_1 = 2131361880;
-			
-			// aapt resource value: 0x7f0a0059
-			public const int buy_2 = 2131361881;
-			
-			// aapt resource value: 0x7f0a005e
-			public const int catalog_url = 2131361886;
+			// aapt resource value: 0x7f0a005a
+			public const int catalog_url = 2131361882;
 			
 			// aapt resource value: 0x7f0a0045
 			public const int error = 2131361861;
@@ -3463,26 +3457,26 @@ namespace TvLeanback
 			// aapt resource value: 0x7f0a0040
 			public const int exo_controls_stop_description = 2131361856;
 			
-			// aapt resource value: 0x7f0a0062
-			public const int failed_app_launch_timeout = 2131361890;
-			
-			// aapt resource value: 0x7f0a0065
-			public const int failed_to_connect = 2131361893;
+			// aapt resource value: 0x7f0a005e
+			public const int failed_app_launch_timeout = 2131361886;
 			
 			// aapt resource value: 0x7f0a0061
-			public const int failed_to_find_app = 2131361889;
+			public const int failed_to_connect = 2131361889;
+			
+			// aapt resource value: 0x7f0a005d
+			public const int failed_to_find_app = 2131361885;
+			
+			// aapt resource value: 0x7f0a005c
+			public const int failed_to_launch_app = 2131361884;
 			
 			// aapt resource value: 0x7f0a0060
-			public const int failed_to_launch_app = 2131361888;
+			public const int failed_to_pause = 2131361888;
 			
-			// aapt resource value: 0x7f0a0064
-			public const int failed_to_pause = 2131361892;
+			// aapt resource value: 0x7f0a005f
+			public const int failed_to_play = 2131361887;
 			
-			// aapt resource value: 0x7f0a0063
-			public const int failed_to_play = 2131361891;
-			
-			// aapt resource value: 0x7f0a0066
-			public const int failed_to_seek = 2131361894;
+			// aapt resource value: 0x7f0a0062
+			public const int failed_to_seek = 2131361890;
 			
 			// aapt resource value: 0x7f0a0051
 			public const int grid_view = 2131361873;
@@ -3649,8 +3643,8 @@ namespace TvLeanback
 			// aapt resource value: 0x7f0a004c
 			public const int loading = 2131361868;
 			
-			// aapt resource value: 0x7f0a005a
-			public const int movie = 2131361882;
+			// aapt resource value: 0x7f0a0056
+			public const int movie = 2131361878;
 			
 			// aapt resource value: 0x7f0a004d
 			public const int no_video_found = 2131361869;
@@ -3658,8 +3652,8 @@ namespace TvLeanback
 			// aapt resource value: 0x7f0a0046
 			public const int ok = 2131361862;
 			
-			// aapt resource value: 0x7f0a006a
-			public const int oops = 2131361898;
+			// aapt resource value: 0x7f0a0066
+			public const int oops = 2131361894;
 			
 			// aapt resource value: 0x7f0a0028
 			public const int orb_search_action = 2131361832;
@@ -3682,53 +3676,47 @@ namespace TvLeanback
 			// aapt resource value: 0x7f0a0050
 			public const int preferences = 2131361872;
 			
-			// aapt resource value: 0x7f0a005f
-			public const int prefix_url = 2131361887;
+			// aapt resource value: 0x7f0a005b
+			public const int prefix_url = 2131361883;
 			
-			// aapt resource value: 0x7f0a006b
-			public const int prefs_header_application = 2131361899;
+			// aapt resource value: 0x7f0a0067
+			public const int prefs_header_application = 2131361895;
 			
-			// aapt resource value: 0x7f0a006c
-			public const int prefs_header_application_summary = 2131361900;
+			// aapt resource value: 0x7f0a0068
+			public const int prefs_header_application_summary = 2131361896;
 			
-			// aapt resource value: 0x7f0a006d
-			public const int prefs_termination_policy_default = 2131361901;
+			// aapt resource value: 0x7f0a0069
+			public const int prefs_termination_policy_default = 2131361897;
+			
+			// aapt resource value: 0x7f0a006a
+			public const int prefs_termination_policy_dialog_title = 2131361898;
 			
 			// aapt resource value: 0x7f0a006e
-			public const int prefs_termination_policy_dialog_title = 2131361902;
+			public const int prefs_volume_default = 2131361902;
 			
-			// aapt resource value: 0x7f0a0072
-			public const int prefs_volume_default = 2131361906;
+			// aapt resource value: 0x7f0a006d
+			public const int prefs_volume_dialog_title = 2131361901;
 			
-			// aapt resource value: 0x7f0a0071
-			public const int prefs_volume_dialog_title = 2131361905;
+			// aapt resource value: 0x7f0a006b
+			public const int prefs_volume_title = 2131361899;
 			
-			// aapt resource value: 0x7f0a006f
-			public const int prefs_volume_title = 2131361903;
-			
-			// aapt resource value: 0x7f0a0070
-			public const int prefs_volume_title_summary = 2131361904;
+			// aapt resource value: 0x7f0a006c
+			public const int prefs_volume_title_summary = 2131361900;
 			
 			// aapt resource value: 0x7f0a0043
 			public const int related_movies = 2131361859;
 			
-			// aapt resource value: 0x7f0a0056
-			public const int rent_1 = 2131361878;
-			
-			// aapt resource value: 0x7f0a0057
-			public const int rent_2 = 2131361879;
-			
-			// aapt resource value: 0x7f0a005d
-			public const int search_results = 2131361885;
+			// aapt resource value: 0x7f0a0059
+			public const int search_results = 2131361881;
 			
 			// aapt resource value: 0x7f0a0052
 			public const int send_feeback = 2131361874;
 			
-			// aapt resource value: 0x7f0a005b
-			public const int should_start = 2131361883;
+			// aapt resource value: 0x7f0a0057
+			public const int should_start = 2131361879;
 			
-			// aapt resource value: 0x7f0a005c
-			public const int start_position = 2131361884;
+			// aapt resource value: 0x7f0a0058
+			public const int start_position = 2131361880;
 			
 			// aapt resource value: 0x7f0a0035
 			public const int status_bar_notification_info_overflow = 2131361845;
@@ -3736,8 +3724,8 @@ namespace TvLeanback
 			// aapt resource value: 0x7f0a0049
 			public const int stop = 2131361865;
 			
-			// aapt resource value: 0x7f0a0073
-			public const int title_activity_test = 2131361907;
+			// aapt resource value: 0x7f0a006f
+			public const int title_activity_test = 2131361903;
 			
 			// aapt resource value: 0x7f0a004e
 			public const int version = 2131361870;
@@ -3745,14 +3733,14 @@ namespace TvLeanback
 			// aapt resource value: 0x7f0a0044
 			public const int vertical_grid_title = 2131361860;
 			
-			// aapt resource value: 0x7f0a0067
-			public const int video_error_media_load_timeout = 2131361895;
+			// aapt resource value: 0x7f0a0063
+			public const int video_error_media_load_timeout = 2131361891;
 			
-			// aapt resource value: 0x7f0a0068
-			public const int video_error_server_unaccessible = 2131361896;
+			// aapt resource value: 0x7f0a0064
+			public const int video_error_server_unaccessible = 2131361892;
 			
-			// aapt resource value: 0x7f0a0069
-			public const int video_error_unknown_error = 2131361897;
+			// aapt resource value: 0x7f0a0065
+			public const int video_error_unknown_error = 2131361893;
 			
 			// aapt resource value: 0x7f0a0054
 			public const int watch_trailer_1 = 2131361876;
